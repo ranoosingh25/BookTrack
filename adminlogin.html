@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Login | Library</title>
+  <link rel="stylesheet" href="adminlogin.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Library Admin Login</h2>
+    <form action="admin-dashboard.html" method="POST">
+      <div class="form-group">
+        <label for="admin-id">Admin ID</label>
+        <input type="text" id="admin-id" name="admin-id" required>
+      </div>
+      <div class="form-group">
+        <label for="admin-password">Password</label>
+        <input type="password" id="admin-password" name="admin-password" required>
+      </div>
+      <button type="submit">Login</button>
+      <p class="note">Only authorized admin can login.</p>
+    </form>
+    <a href="#">Forgot password</a> <a href="adminreg.html">Register Now</a>
+  </div>
+</body>
+</html>

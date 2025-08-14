@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Student Registration - College Library</title>
+
+  <style>
+
+    body {
+
+      font-family: 'Segoe UI', sans-serif;
+
+      background: url('./Images/login page images.jpg') no-repeat center center fixed;
+
+      background-size: cover;
+
+      margin: 0;
+
+      padding: 0;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      height: 100vh;
+
+    }
+
+
+
+    .register-box {
+
+      background-color: #242323;
+
+      padding: 50px;
+
+      border-radius: 10px;
+
+      box-shadow: 0 10px 25px rgba(59, 59, 59, 0.2);
+
+      width: 400px;
+
+    }
+
+
+
+    .register-box h2 {
+
+      text-align: center;
+
+      margin-bottom: 25px;
+
+      color: #ffffff;
+
+    }
+
+
+
+    .register-box input,
+
+    .register-box select {
+
+      width: 100%;
+
+      padding: 12px;
+
+      margin: 10px -10px;
+
+      border-radius: 5px;
+
+      border: 1px solid #a8a8a8;
+
+    }
+
+
+
+    .register-box button {
+
+      width: 100%;
+
+      padding: 12px;
+
+      background-color: #248fd5;
+
+      border: none;
+
+      color: white;
+
+      font-weight: bold;
+
+      font-size: 16px;
+
+      border-radius: 5px;
+
+      cursor: pointer;
+
+      margin-top: 15px;
+
+    }
+
+
+
+    .register-box button:hover {
+
+      background-color: #0056b3;
+
+    }
+
+
+
+    .register-box small {
+
+      display: block;
+
+      margin-top: 20px;
+
+      text-align: center;
+
+      color: #c8c7c7;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+
+
+  <div class="register-box">
+
+    <h2>Student Registration</h2>
+
+    <form>
+
+      <input type="text" placeholder="Full Name" required>
+
+      <input type="email" placeholder="Email Address" required>
+
+      <input type="text" placeholder="Enrollment Number" required>
+
+      <input type="text" placeholder="Branch" required>
+
+      <select required>
+
+        <option value="">Select Year</option>
+
+        <option value="1">1st Year</option>
+
+        <option value="2">2nd Year</option>
+
+        <option value="3">3rd Year</option>
+
+        <option value="4">4th Year</option>
+
+      </select>
+
+      <input type="password" placeholder="Create Password" required>
+
+      <input type="password" placeholder="Confirm Password" required>
+
+      <a href="studdash.html">
+      <button type="button">Register</button>
+      </a>
+
+      <small>Already registered? <a href="studlogin.html" style="color:#007bff;">Login here</a></small>
+
+    </form>
+
+  </div>
+
+
+
+</body>
+
+</html>
