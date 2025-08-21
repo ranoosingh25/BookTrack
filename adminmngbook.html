@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BookTrack — Manage Books</title>
+  <link rel="stylesheet" href="admindash.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="graduate.gif" alt="BookTrack Logo" class="logo-img">
+        <span>BookTrack</span>
+      </div>
+      <nav class="nav">
+        <a href="admindash.html">Dashboard</a>
+        <a href="adminmngbook.html" class="active">Manage Books</a>
+        <a href="adminmngstud.html">Manage Students</a>
+        <a href="adminloan.html">Loans</a>
+        <a href="adminreport.html">Reports</a>
+        <a href="adminprofile.html">Profile</a>
+        <a href="logout.html">Logout</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+      <div class="card">
+        <h3>Books Inventory</h3>
+        <div class="flex" style="margin-bottom:10px">
+          <input id="bookTitle" placeholder="Book Title" style="padding:6px;flex:1">
+          <input id="bookAuthor" placeholder="Author" style="padding:6px;flex:1">
+          <input id="bookCopies" type="number" placeholder="Copies" style="padding:6px;width:80px">
+          <button class="btn primary" id="addBook">Add</button>
+        </div>
+        <table id="booksTable">
+          <thead><tr><th>Title</th><th>Author</th><th>Copies</th><th>Actions</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script src="admindash.js"></script>
+</body>
+</html>
