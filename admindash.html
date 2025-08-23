@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -526,3 +527,197 @@
 </body>
 
 </html>
+=======
+<<<<<<< HEAD
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BookTrack — Admin Dashboard</title>
+  <link rel="stylesheet" href="admindash.css">
+  <link rel="stylesheet" href="admindash.js">
+
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="graduate.gif" alt="BookTrack Logo" class="logo-img">
+        <span>BookTrack</span>
+      </div>
+      <nav class="nav">
+        <a href="admindash.html" class="active">Dashboard</a>
+        <a href="adminmngbook.html">Manage Books</a>
+        <a href="adminmngstud.html">Manage Students</a>
+        <a href="adminloan">Loans</a>
+        <a href="adminreport">Reports</a>
+        <a href="adminprofile.html">Profile</a>
+        <a href="logout.html">Logout</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+      <div class="card">
+        <h3>Welcome to BookTrack Admin Dashboard</h3>
+        <p>Use the navigation to manage books, students, loans and reports.</p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+=======
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BookTrack — Admin Dashboard</title>
+  <style>
+    :root{
+      --bg:#f4f7fb;--card:#ffffff;--accent:#9333ea;--muted:#6b7280;--danger:#dc2626;--success:#059669;--radius:12px;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+    }
+    body{margin:0;background:var(--bg);color:#0f172a}
+    .app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+    .sidebar{background:linear-gradient(180deg,#1e093d, #31104d);color:#fff;padding:22px}
+    .brand{font-weight:700;font-size:20px;display:flex;align-items:center;gap:10px}
+    .brand .logo{background:linear-gradient(90deg,#a855f7,#ec4899);width:36px;height:36px;border-radius:9px;display:inline-grid;place-items:center;font-weight:700}
+    .nav{margin-top:20px}
+    .nav button{display:block;width:100%;padding:10px 12px;border-radius:8px;border:0;background:transparent;color:inherit;text-align:left;margin-bottom:8px;cursor:pointer}
+    .nav button.active{background:rgba(255,255,255,0.06)}
+    main{padding:28px}
+    .card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:0 6px 20px rgba(2,6,23,0.06)}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:8px 6px;text-align:left;border-bottom:1px solid #eef2ff}
+    .btn{padding:6px 10px;border-radius:8px;border:0;cursor:pointer}
+    .btn.primary{background:var(--accent);color:#fff}
+    .btn.danger{background:var(--danger);color:#fff}
+    .btn.success{background:var(--success);color:#fff}
+    .muted{color:var(--muted)}
+    .flex{display:flex;gap:8px;align-items:center}
+    @media(max-width:900px){.app{grid-template-columns:1fr}.sidebar{display:none}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><span class="logo">BT</span> Admin</div>
+      <nav class="nav">
+        <button class="active" data-view="dashboard">Dashboard</button>
+        <button data-view="manageBooks">Manage Books</button>
+        <button data-view="users">Manage Students</button>
+        <button data-view="loans">Loans</button>
+        <button data-view="reports">Reports</button>
+      </nav>
+    </aside>
+    <main>
+      <div class="card">
+        <h3>Books Inventory</h3>
+        <div class="flex" style="margin-bottom:10px">
+          <input id="bookTitle" placeholder="Book Title" style="padding:6px;flex:1">
+          <input id="bookAuthor" placeholder="Author" style="padding:6px;flex:1">
+          <input id="bookCopies" type="number" placeholder="Copies" style="padding:6px;width:80px">
+          <button class="btn primary" id="addBook">Add</button>
+        </div>
+        <table id="booksTable">
+          <thead><tr><th>Title</th><th>Author</th><th>Copies</th><th>Actions</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="card" style="margin-top:20px">
+        <h3>Student Management</h3>
+        <div class="flex" style="margin-bottom:10px">
+          <input id="studentName" placeholder="Student Name" style="padding:6px;flex:1">
+          <input id="studentEmail" placeholder="Email" style="padding:6px;flex:1">
+          <button class="btn primary" id="addStudent">Add</button>
+        </div>
+        <table id="studentsTable">
+          <thead><tr><th>Name</th><th>Email</th><th>Actions</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const db = {
+      get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},
+      set(k,v){localStorage.setItem(k,JSON.stringify(v))},
+      init(){if(!this.get('books')) this.set('books', []); if(!this.get('students')) this.set('students', []);}
+    }
+
+    const booksTableBody = document.querySelector('#booksTable tbody');
+    const studentsTableBody = document.querySelector('#studentsTable tbody');
+
+    function renderBooks(){
+      const books = db.get('books') || [];
+      booksTableBody.innerHTML = '';
+      books.forEach((b,i)=>{
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${b.title}</td><td>${b.author}</td><td>${b.copies}</td><td><button class='btn success' onclick='editBook(${i})'>Edit</button> <button class='btn danger' onclick='deleteBook(${i})'>Delete</button></td>`;
+        booksTableBody.appendChild(tr);
+      })
+    }
+
+    function renderStudents(){
+      const students = db.get('students') || [];
+      studentsTableBody.innerHTML = '';
+      students.forEach((s,i)=>{
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${s.name}</td><td>${s.email}</td><td><button class='btn success' onclick='editStudent(${i})'>Edit</button> <button class='btn danger' onclick='deleteStudent(${i})'>Delete</button></td>`;
+        studentsTableBody.appendChild(tr);
+      })
+    }
+
+    document.getElementById('addBook').addEventListener('click',()=>{
+      const title = document.getElementById('bookTitle').value.trim();
+      const author = document.getElementById('bookAuthor').value.trim();
+      const copies = parseInt(document.getElementById('bookCopies').value);
+      if(!title || !author || isNaN(copies)) return alert('Fill all book fields');
+      const books = db.get('books'); books.push({title,author,copies}); db.set('books',books);
+      renderBooks();
+      document.getElementById('bookTitle').value=''; document.getElementById('bookAuthor').value=''; document.getElementById('bookCopies').value='';
+    });
+
+    document.getElementById('addStudent').addEventListener('click',()=>{
+      const name = document.getElementById('studentName').value.trim();
+      const email = document.getElementById('studentEmail').value.trim();
+      if(!name || !email) return alert('Fill all student fields');
+      const students = db.get('students'); students.push({name,email}); db.set('students',students);
+      renderStudents();
+      document.getElementById('studentName').value=''; document.getElementById('studentEmail').value='';
+    });
+
+    window.deleteBook = (i)=>{
+      const books = db.get('books'); books.splice(i,1); db.set('books',books); renderBooks();
+    }
+
+    window.editBook = (i)=>{
+      const books = db.get('books'); const b = books[i];
+      const title = prompt('Title:',b.title); if(!title) return;
+      const author = prompt('Author:',b.author); if(!author) return;
+      const copies = parseInt(prompt('Copies:',b.copies)); if(isNaN(copies)) return;
+      books[i] = {title,author,copies}; db.set('books',books); renderBooks();
+    }
+
+    window.deleteStudent = (i)=>{
+      const students = db.get('students'); students.splice(i,1); db.set('students',students); renderStudents();
+    }
+
+    window.editStudent = (i)=>{
+      const students = db.get('students'); const s = students[i];
+      const name = prompt('Name:',s.name); if(!name) return;
+      const email = prompt('Email:',s.email); if(!email) return;
+      students[i] = {name,email}; db.set('students',students); renderStudents();
+    }
+
+    db.init(); renderBooks(); renderStudents();
+  </script>
+</body>
+</html>
+>>>>>>> 1ea516461129b463c0180214f1845d336f1453ea
+>>>>>>> 0cb7f312c088e16680687c6d21337660ddd847c2
