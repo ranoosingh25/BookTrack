@@ -46,13 +46,13 @@ body {
   align-items: center;
   gap: 20px;
   font-size: 0.95rem;
-  padding-top:10px ;
+  padding-top: 10px;
   position: fixed;
   top: auto;
   left: -50px;
   width: 100%;
   padding: 15px 20px;
-  
+
 }
 
 .nav-links a {
@@ -129,7 +129,7 @@ body {
   padding: 20px;
   border-radius: 12px;
   width: 260px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
 }
 
