@@ -1,0 +1,23 @@
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#0f172a}
+.app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+
+.sidebar{background:linear-gradient(180deg,#1e093d,#31104d);color:#fff;padding:22px}
+.brand{font-weight:700;font-size:20px;display:flex;align-items:center;gap:10px}
+.logo-img{width:36px;height:36px;border-radius:8px}
+
+.nav{margin-top:20px}
+.nav a{display:block;width:100%;padding:10px 12px;border-radius:8px;text-decoration:none;color:inherit;margin-bottom:8px}
+.nav a.active{background:rgba(255,255,255,0.06)}
+
+main{padding:28px}
+.card{background:#fff;border-radius:12px;padding:16px;box-shadow:0 6px 20px rgba(2,6,23,0.06)}
+
+table{width:100%;border-collapse:collapse}
+th,td{padding:8px;text-align:left;border-bottom:1px solid #eef2ff}
+
+.btn{padding:6px 10px;border-radius:8px;border:0;cursor:pointer}
+.btn.primary{background:#9333ea;color:#fff}
+.btn.danger{background:#dc2626;color:#fff}
+.btn.success{background:#059669;color:#fff}
+
+.flex{display:flex;gap:8px;align-items:center}
