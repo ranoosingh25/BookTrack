@@ -1,12 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BookTrack</title>
   <link rel="stylesheet" href="index.css" />
 </head>
+
 <body>
   <header class="library-header">
     <div class="header-overlay">
@@ -20,16 +21,16 @@
 
       <nav class="nav-links">
         <a href="index.html" class="active">Home</a>
-        <a href="info.html" >Information</a>
+        <a href="info.html">Information</a>
         <a href="help.html">Help</a>
         <a href="librarian.html">Librarian</a>
         <a href="login.html">Log in</a>
-        
 
-        
+
+
       </nav>
 
-       <div class="search-bar">
+      <div class="search-bar">
         <input type="text" id="search" placeholder="Enter keyword to search collection..." />
         <button onclick="searchLibrary()">
           <span class="search-icon">&#128269;</span>
@@ -39,109 +40,111 @@
     </div>
   </header>
   <div class="container">
-  <aside class="filter-panel">
-    <h2>Filter by</h2>
+    <aside class="filter-panel">
+      <h2>Filter by</h2>
 
-    <div class="filter-section">
-      <h3>Publication Year</h3>
-      <input type="range" min="1990" max="2025" value="2007" />
-    </div>
+      <div class="filter-section">
+        <h3>Publication Year</h3>
+        <input type="range" min="1990" max="2025" value="2007" />
+      </div>
 
-    <div class="filter-section">
-      <h3>Availability</h3>
-      <label><input type="radio" name="availability" checked /> On Shelf</label>
-    </div>
+      <div class="filter-section">
+        <h3>Availability</h3>
+        <label><input type="radio" name="availability" checked /> On Shelf</label>
+      </div>
 
-    <div class="filter-section">
-      <h3>Collection Type</h3>
-      <label><input type="checkbox" /> Reference</label>
-      <label><input type="checkbox" /> Textbook</label>
-      <label><input type="checkbox" /> Fiction</label>
-    </div>
+      <div class="filter-section">
+        <h3>Collection Type</h3>
+        <label><input type="checkbox" /> Reference</label>
+        <label><input type="checkbox" /> Textbook</label>
+        <label><input type="checkbox" /> Fiction</label>
+      </div>
 
-     <div class="filter-section">
-      <h3>General Material Designation</h3>
-      <label><input type="checkbox" /> Text</label>
-      <label><input type="checkbox" /> Art Original</label>
-      <label><input type="checkbox" /> Chart</label>
-      <label><input type="checkbox" /> Computer Software</label>
-    </div>
+      <div class="filter-section">
+        <h3>General Material Designation</h3>
+        <label><input type="checkbox" /> Text</label>
+        <label><input type="checkbox" /> Art Original</label>
+        <label><input type="checkbox" /> Chart</label>
+        <label><input type="checkbox" /> Computer Software</label>
+      </div>
 
-    <div class="filter-section">
-      <h3>Language</h3>
-      <label><input type="checkbox" /> English</label>
-      <label><input type="checkbox" /> Indonesia</label>
-    </div>
-  </aside>
+      <div class="filter-section">
+        <h3>Language</h3>
+        <label><input type="checkbox" /> English</label>
+        <label><input type="checkbox" /> Indonesia</label>
+      </div>
+    </aside>
 
-  <main class="results-panel">
-    <div class="results-header">
-      <p><strong>Found 8</strong> from your keywords:</p>
-      <label>
-        Sort by:
-        <select>
-          <option>Most relevant</option>
-          <option>Newest</option>
-          <option>Oldest</option>
-        </select>
-      </label>
-    </div>
+    <main class="results-panel">
+      <div class="results-header">
+        <p><strong>Found 8</strong> from your keywords:</p>
+        <label>
+          Sort by:
+          <select>
+            <option>Most relevant</option>
+            <option>Newest</option>
+            <option>Oldest</option>
+          </select>
+        </label>
+      </div>
 
-    <div class="book-card">
-      <img src="ajax.jpg" alt="Ajax Book" />
-      <div class="book-details">
-        <h3>Ajax: Creating Web Pages with Asynchronous JavaScript and XML</h3>
-        <p><strong>Author:</strong> Woychowsky, Edmond</p>
-        <p>Using Ajax, you can build web applications with the sophistication of desktop apps using open-source standards.</p>
-        <div class="book-actions">
-          <button>Comment</button>
-          <button>Bookmark</button>
-          <button>Share</button>
+      <div class="book-card">
+        <img src="ajax.jpg" alt="Ajax Book" />
+        <div class="book-details">
+          <h3>Ajax: Creating Web Pages with Asynchronous JavaScript and XML</h3>
+          <p><strong>Author:</strong> Woychowsky, Edmond</p>
+          <p>Using Ajax, you can build web applications with the sophistication of desktop apps using open-source
+            standards.</p>
+          <div class="book-actions">
+            <button>Comment</button>
+            <button>Bookmark</button>
+            <button>Share</button>
+          </div>
+        </div>
+        <div class="book-meta">
+          <p>Availability: <strong>1</strong></p>
+          <button>Download</button>
+          <button>Cite</button>
         </div>
       </div>
-      <div class="book-meta">
-        <p>Availability: <strong>1</strong></p>
-        <button>Download</button>
-        <button>Cite</button>
+
+      <!-- Add more book-card blocks if needed -->
+    </main>
+  </div>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <h3>📚 BookTrack</h3>
+        <p>Student-Centric Library Management System</p>
+        <p>KDK College of Engineering, Nagpur</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Catalog</a></li>
+          <li><a href="#">E-Resources</a></li>
+          <li><a href="#">Feedback</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>Email: library@kdkce.edu.in</p>
+        <p>Phone: +91-712-1234567</p>
+        <p>Address: KDK College Campus, Nagpur</p>
       </div>
     </div>
 
-    <!-- Add more book-card blocks if needed -->
-  </main>
-</div>
-<footer class="footer">
-  <div class="footer-content">
-    <div class="footer-left">
-      <h3>📚 BookTrack</h3>
-      <p>Student-Centric Library Management System</p>
-      <p>KDK College of Engineering, Nagpur</p>
+    <div class="footer-bottom">
+      <p>&copy; 2025 BookTrack | Developed for KDK College by Final Year CSE Students</p>
     </div>
-
-    <div class="footer-links">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Catalog</a></li>
-        <li><a href="#">E-Resources</a></li>
-        <li><a href="#">Feedback</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-contact">
-      <h4>Contact</h4>
-      <p>Email: library@kdkce.edu.in</p>
-      <p>Phone: +91-712-1234567</p>
-      <p>Address: KDK College Campus, Nagpur</p>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2025 BookTrack | Developed for KDK College by Final Year CSE Students</p>
-  </div>
-</footer>
+  </footer>
 
 
   <script src="index.js"></script>
 </body>
-
 </html>
+
+

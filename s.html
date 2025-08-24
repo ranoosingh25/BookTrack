@@ -1,58 +1,58 @@
 abhi bhi nhi dikh rhe h
 {
-  "name": "ums-dashboard",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "concurrently \"npm:start --prefix client\" \"npm:server --prefix server\"",
-    "start": "node server/index.js",
-    "client": "npm:start --prefix client",
-    "server": "nodemon index.js --watch . --prefix server"
-  },
-  "dependencies": {
-    "concurrently": "^7.0.0"
-  }
+"name": "ums-dashboard",
+"version": "1.0.0",
+"private": true,
+"scripts": {
+"dev": "concurrently \"npm:start --prefix client\" \"npm:server --prefix server\"",
+"start": "node server/index.js",
+"client": "npm:start --prefix client",
+"server": "nodemon index.js --watch . --prefix server"
+},
+"dependencies": {
+"concurrently": "^7.0.0"
+}
 }
 
 /*
 /client/package.json
 */
 {
-  "name": "ums-client",
-  "version": "1.0.0",
-  "private": true,
-  "dependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-scripts": "5.0.1",
-    "axios": "^1.0.0",
-    "react-toggle": "^4.1.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build"
-  }
+"name": "ums-client",
+"version": "1.0.0",
+"private": true,
+"dependencies": {
+"react": "^18.0.0",
+"react-dom": "^18.0.0",
+"react-scripts": "5.0.1",
+"axios": "^1.0.0",
+"react-toggle": "^4.1.1"
+},
+"scripts": {
+"start": "react-scripts start",
+"build": "react-scripts build"
+}
 }
 
 /*
 /client/tailwind.config.js
 */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
+content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
+theme: {
+extend: {},
+},
+plugins: [],
 }
 
 /*
 /client/postcss.config.js
 */
 module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
+plugins: {
+tailwindcss: {},
+autoprefixer: {},
+},
 }
 
 /*
@@ -63,19 +63,19 @@ module.exports = {
 @tailwind utilities;
 
 :root {
-  --bg: #f6f7fb;
-  --card: #fff;
-  --muted: #6b7280;
+--bg: #f6f7fb;
+--card: #fff;
+--muted: #6b7280;
 }
 
 [data-theme='dark'] {
-  --bg: #0f1724;
-  --card: #0b1220;
-  --muted: #9ca3af;
+--bg: #0f1724;
+--card: #0b1220;
+--muted: #9ca3af;
 }
 
 body {
-  background: var(--bg);
+background: var(--bg);
 }
 
 /*
@@ -86,7 +86,8 @@ import { createRoot } from 'react-dom/client'
 import App from './App'
 import './index.css'
 
-createRoot(document.getElementById('root')).render(<App />)
+createRoot(document.getElementById('root')).render(
+<App />)
 
 /*
 /client/src/App.jsx
@@ -98,139 +99,146 @@ import Toggle from 'react-toggle'
 import 'react-toggle/style.css'
 
 function Card({ title, value, percent, icon }) {
-  return (
-    <div className="bg-white dark:bg-gray-800 shadow rounded-xl p-6 w-64">
-      <div className="flex items-center justify-between">
-        <div>
-          <div className="text-sm text-gray-500 dark:text-gray-300">{title}</div>
-          <div className="mt-2 font-bold text-xl">{value}</div>
-        </div>
-        <div className="text-3xl">{icon}</div>
-      </div>
-      <div className="mt-4">
-        <div className="text-xs text-gray-500 dark:text-gray-300">Last 24 Hours</div>
-        <div className="w-full bg-gray-200 dark:bg-gray-700 h-2 mt-2 rounded-full overflow-hidden">
-          <div style={{width: `${percent}%`}
-        } className="h-full bg-indigo-500 dark:bg-indigo-400"></div>
-        </div>
-      </div>
+return {
+<div className="bg-white dark:bg-gray-800 shadow rounded-xl p-6 w-64">
+  <div className="flex items-center justify-between">
+    <div>
+      <div className="text-sm text-gray-500 dark:text-gray-300">{title}</div>
+      <div className="mt-2 font-bold text-xl">{value}</div>
     </div>
-  )
-}
+    <div className="text-3xl">{icon}</div>
+  </div>
+  <div className="mt-4">
+    <div className="text-xs text-gray-500 dark:text-gray-300">Last 24 Hours</div>
+    <div className="w-full bg-gray-200 dark:bg-gray-700 h-2 mt-2 rounded-full overflow-hidden">
+      <div style={ width: `${percent}%` }className="h-full bg-indigo-500 dark:bg-indigo-400"></div>
+    </div>
+  </div>
+</div>
+
+
 
 export default function App(){
-  const [theme, setTheme] = useState('light')
-  const [attendance, setAttendance] = useState([])
-  const [timetable, setTimetable] = useState([])
-  const [announcements, setAnnouncements] = useState([])
+const [theme, setTheme] = useState('light')
+const [attendance, setAttendance] = useState([])
+const [timetable, setTimetable] = useState([])
+const [announcements, setAnnouncements] = useState([])
 
-  useEffect(()=>{
-    document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : '')
-  },[theme])
+useEffect(()=>{
+document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : '')
+},[theme])
 
-  useEffect(()=>{
-    async function fetchData(){
-      try{
-        const [a, t, an] = await Promise.all([
-          axios.get('/api/attendance'),
-          axios.get('/api/timetable'),
-          axios.get('/api/announcements')
-        ])
-        setAttendance(a.data)
-        setTimetable(t.data)
-        setAnnouncements(an.data)
-      }catch(e){
-        console.error(e)
-      }
-    }
-    fetchData()
-  },[])
-
-  return (
-    <div className="min-h-screen p-8 transition-colors">
-      <header className="flex items-center justify-between mb-8">
-        <div className="flex items-center gap-4">
-          <div className="text-2xl font-bold">UMS</div>
-          <nav className="hidden md:flex gap-6 text-gray-600 dark:text-gray-300">
-            <div>Home</div>
-            <div>Time Table</div>
-            <div>Examination</div>
-          </nav>
-        </div>
-        <div className="flex items-center gap-4">
-          <label className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">Dark</label>
-          <Toggle checked={theme === 'dark'} onChange={(e)=>setTheme(e.target.checked ? 'dark' : 'light')} />
-        </div>
-      </header>
-
-      <main className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <aside className="col-span-1">
-          <div className="bg-white dark:bg-gray-800 shadow rounded-xl p-6">
-            <div className="flex items-center gap-4">
-              <img src="https://i.pravatar.cc/80" alt="avatar" className="rounded-full" />
-              <div>
-                <div className="font-bold">Hey, Alex</div>
-                <div className="text-sm text-gray-500 dark:text-gray-300">12102030</div>
-              </div>
-            </div>
-
-            <div className="mt-6 text-sm text-gray-600 dark:text-gray-300 space-y-2">
-              <div><strong>Course</strong><div>BTech. Computer Science & Engineering</div></div>
-              <div><strong>DOB</strong><div>29-Feb-2020</div></div>
-              <div><strong>Contact</strong><div>1234567890</div></div>
-              <div><strong>Email</strong><div>unknown@gmail.com</div></div>
-            </div>
-          </div>
-        </aside>
-
-        <section className="col-span-2">
-          <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-100">Attendance</h2>
-          <div className="flex gap-6 overflow-x-auto mb-8">
-            {attendance.map((c)=> (
-              <Card key={c._id} title={c.subject} value={`${c.present}/${c.total}`} percent={Math.round((c.present/c.total)*100)} icon={c.icon || '📘'} />
-            ))}
-          </div>
-
-          <div className="bg-white dark:bg-gray-800 shadow rounded-xl p-6">
-            <h3 className="font-bold text-lg mb-4 text-gray-800 dark:text-gray-100">Today's Timetable</h3>
-            <table className="w-full text-left text-sm text-gray-700 dark:text-gray-300">
-              <thead>
-                <tr>
-                  <th>Time</th>
-                  <th>Room No.</th>
-                  <th>Subject</th>
-                </tr>
-              </thead>
-              <tbody>
-                {timetable.map((r)=> (
-                  <tr key={r._id} className="border-t border-gray-100 dark:border-gray-700">
-                    <td className="py-3">{r.time}</td>
-                    <td>{r.room}</td>
-                    <td>{r.subject}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-        </section>
-
-        <aside className="col-span-1">
-          <h3 className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-100">Announcements</h3>
-          <div className="space-y-4">
-            {announcements.map((a)=> (
-              <div key={a._id} className="bg-white dark:bg-gray-800 shadow rounded-xl p-4">
-                <div className="font-semibold">{a.title}</div>
-                <div className="text-xs text-gray-500 dark:text-gray-300 mt-1">{a.time}</div>
-                <div className="mt-2 text-sm text-gray-700 dark:text-gray-300">{a.body}</div>
-              </div>
-            ))}
-          </div>
-        </aside>
-      </main>
-    </div>
-  )
+useEffect(()=>{
+async function fetchData(){
+try{
+const [a, t, an] = await Promise.all([
+axios.get('/api/attendance'),
+axios.get('/api/timetable'),
+axios.get('/api/announcements')
+])
+setAttendance(a.data)
+setTimetable(t.data)
+setAnnouncements(an.data)
+}catch(e){
+console.error(e)
 }
+}
+fetchData()
+},[])
+
+return (
+<div className="min-h-screen p-8 transition-colors">
+  <header className="flex items-center justify-between mb-8">
+    <div className="flex items-center gap-4">
+      <div className="text-2xl font-bold">UMS</div>
+      <nav className="hidden md:flex gap-6 text-gray-600 dark:text-gray-300">
+        <div>Home</div>
+        <div>Time Table</div>
+        <div>Examination</div>
+      </nav>
+    </div>
+    <div className="flex items-center gap-4">
+      <label className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">Dark</label>
+      <Toggle checked={theme==='dark' } onChange={(e)=>setTheme(e.target.checked ? 'dark' : 'light')} />
+    </div>
+  </header>
+
+  <main className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <aside className="col-span-1">
+      <div className="bg-white dark:bg-gray-800 shadow rounded-xl p-6">
+        <div className="flex items-center gap-4">
+          <img src="https://i.pravatar.cc/80" alt="avatar" className="rounded-full" />
+          <div>
+            <div className="font-bold">Hey, Alex</div>
+            <div className="text-sm text-gray-500 dark:text-gray-300">12102030</div>
+          </div>
+        </div>
+
+        <div className="mt-6 text-sm text-gray-600 dark:text-gray-300 space-y-2">
+          <div><strong>Course</strong>
+            <div>BTech. Computer Science & Engineering</div>
+          </div>
+          <div><strong>DOB</strong>
+            <div>29-Feb-2020</div>
+          </div>
+          <div><strong>Contact</strong>
+            <div>1234567890</div>
+          </div>
+          <div><strong>Email</strong>
+            <div>unknown@gmail.com</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <section className="col-span-2">
+      <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-100">Attendance</h2>
+      <div className="flex gap-6 overflow-x-auto mb-8">
+        {attendance.map{(c)=> {
+        <Card key={c._id} title={c.subject} value={`${c.present}/${c.total}`}
+          percent={Math.round((c.present/c.total)*100)} icon={c.icon || '📘' } />
+        }}}
+      </div>
+
+      <div className="bg-white dark:bg-gray-800 shadow rounded-xl p-6">
+        <h3 className="font-bold text-lg mb-4 text-gray-800 dark:text-gray-100">Today's Timetable</h3>
+        <table className="w-full text-left text-sm text-gray-700 dark:text-gray-300">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Room No.</th>
+              <th>Subject</th>
+            </tr>
+          </thead>
+          <tbody>
+            {timetable.map((r)=> (
+            <tr key={r._id} className="border-t border-gray-100 dark:border-gray-700">
+              <td className="py-3">{r.time}</td>
+              <td>{r.room}</td>
+              <td>{r.subject}</td>
+            </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <aside className="col-span-1">
+      <h3 className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-100">Announcements</h3>
+      <div className="space-y-4">
+        {announcements.map{(a)=> {
+        <div key={a._id} className="bg-white dark:bg-gray-800 shadow rounded-xl p-4">
+          <div className="font-semibold">{a.title}</div>
+          <div className="text-xs text-gray-500 dark:text-gray-300 mt-1">{a.time}</div>
+          <div className="mt-2 text-sm text-gray-700 dark:text-gray-300">{a.body}</div>
+        </div>
+        }}}
+      </div>
+    </aside>
+  </main>
+</div>
+
 
 /*
 /client/src/setupProxy.js
@@ -238,27 +246,27 @@ export default function App(){
 */
 const { createProxyMiddleware } = require('http-proxy-middleware')
 module.exports = function(app) {
-  app.use(createProxyMiddleware('/api', { target: 'http://localhost:5000', changeOrigin: true }))
+app.use(createProxyMiddleware('/api', { target: 'http://localhost:5000', changeOrigin: true }))
 }
 
 /*
 /server/package.json
 */
 {
-  "name": "ums-server",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
-  },
-  "dependencies": {
-    "express": "^4.18.2",
-    "mongoose": "^7.0.0",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.0",
-    "morgan": "^1.10.0"
-  }
+"name": "ums-server",
+"version": "1.0.0",
+"main": "index.js",
+"scripts": {
+"start": "node index.js",
+"dev": "nodemon index.js"
+},
+"dependencies": {
+"express": "^4.18.2",
+"mongoose": "^7.0.0",
+"cors": "^2.8.5",
+"dotenv": "^16.0.0",
+"morgan": "^1.10.0"
+}
 }
 
 /*
@@ -274,10 +282,10 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const AttendanceSchema = new Schema({
-  subject: String,
-  present: Number,
-  total: Number,
-  icon: String
+subject: String,
+present: Number,
+total: Number,
+icon: String
 })
 module.exports = mongoose.model('Attendance', AttendanceSchema)
 
@@ -288,9 +296,9 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const TimetableSchema = new Schema({
-  time: String,
-  room: String,
-  subject: String
+time: String,
+room: String,
+subject: String
 })
 module.exports = mongoose.model('Timetable', TimetableSchema)
 
@@ -301,9 +309,9 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const AnnouncementSchema = new Schema({
-  title: String,
-  body: String,
-  time: String
+title: String,
+body: String,
+time: String
 })
 module.exports = mongoose.model('Announcement', AnnouncementSchema)
 
@@ -317,33 +325,33 @@ const Announcement = require('./models/Announcement')
 require('dotenv').config()
 
 async function seed(){
-  await mongoose.connect(process.env.MONGO_URI)
-  await Attendance.deleteMany({})
-  await Timetable.deleteMany({})
-  await Announcement.deleteMany({})
+await mongoose.connect(process.env.MONGO_URI)
+await Attendance.deleteMany({})
+await Timetable.deleteMany({})
+await Announcement.deleteMany({})
 
-  await Attendance.insertMany([
-    {subject: 'Engineering Graphics', present: 12, total: 14, icon: '📐'},
-    {subject: 'Mathematical Engineering', present: 27, total: 29, icon: '∑'},
-    {subject: 'Computer Architecture', present: 27, total: 30, icon: '💻'},
-    {subject: 'Database Management', present: 24, total: 25, icon: '🗄️'},
-    {subject: 'Network Security', present: 25, total: 27, icon: '🔒'}
-  ])
+await Attendance.insertMany([
+{subject: 'Engineering Graphics', present: 12, total: 14, icon: '📐'},
+{subject: 'Mathematical Engineering', present: 27, total: 29, icon: '∑'},
+{subject: 'Computer Architecture', present: 27, total: 30, icon: '💻'},
+{subject: 'Database Management', present: 24, total: 25, icon: '🗄️'},
+{subject: 'Network Security', present: 25, total: 27, icon: '🔒'}
+])
 
-  await Timetable.insertMany([
-    {time: '10-11 AM', room: '33-309', subject: 'DBMS130'},
-    {time: '11-12 AM', room: '38-719', subject: 'CS200'},
-    {time: '01-02 PM', room: '33-309', subject: 'MTH166'}
-  ])
+await Timetable.insertMany([
+{time: '10-11 AM', room: '33-309', subject: 'DBMS130'},
+{time: '11-12 AM', room: '38-719', subject: 'CS200'},
+{time: '01-02 PM', room: '33-309', subject: 'MTH166'}
+])
 
-  await Announcement.insertMany([
-    {title: 'Academic', body: 'Summer training internship with Live Projects.', time: '2 Minutes Ago'},
-    {title: 'Co-curricular', body: 'Global internship opportunity by Student organization.', time: '10 Minutes Ago'},
-    {title: 'Examination', body: 'Instructions for Mid Term Examination.', time: 'Yesterday'}
-  ])
+await Announcement.insertMany([
+{title: 'Academic', body: 'Summer training internship with Live Projects.', time: '2 Minutes Ago'},
+{title: 'Co-curricular', body: 'Global internship opportunity by Student organization.', time: '10 Minutes Ago'},
+{title: 'Examination', body: 'Instructions for Mid Term Examination.', time: 'Yesterday'}
+])
 
-  console.log('Seeded DB')
-  process.exit(0)
+console.log('Seeded DB')
+process.exit(0)
 }
 seed()
 
@@ -366,22 +374,22 @@ app.use(cors())
 app.use(morgan('dev'))
 
 mongoose.connect(process.env.MONGO_URI)
-  .then(()=> console.log('Mongo connected'))
-  .catch(e=> console.error(e))
+.then(()=> console.log('Mongo connected'))
+.catch(e=> console.error(e))
 
 app.get('/api/attendance', async (req,res)=>{
-  const data = await Attendance.find({})
-  res.json(data)
+const data = await Attendance.find({})
+res.json(data)
 })
 
 app.get('/api/timetable', async (req,res)=>{
-  const data = await Timetable.find({})
-  res.json(data)
+const data = await Timetable.find({})
+res.json(data)
 })
 
 app.get('/api/announcements', async (req,res)=>{
-  const data = await Announcement.find({})
-  res.json(data)
+const data = await Announcement.find({})
+res.json(data)
 })
 
 const PORT = process.env.PORT || 5000
@@ -409,4 +417,5 @@ Open http://localhost:3000
 
 ---
 
-// This file provides a complete example implementation. You can extend it by adding auth, role-based views, edit forms, file uploads, and more.
+// This file provides a complete example implementation. You can extend it by adding auth, role-based views, edit forms,
+file uploads, and more features as needed.

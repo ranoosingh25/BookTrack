@@ -1,3 +1,4 @@
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -109,3 +110,5 @@ tr:hover {
 }
 .due-soon { background-color: orange; }
 .overdue { background-color: red; }
+.on-time { background-color: green; }
+

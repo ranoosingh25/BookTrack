@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -46,13 +47,13 @@ body {
   align-items: center;
   gap: 20px;
   font-size: 0.95rem;
-  padding-top:10px ;
+  padding-top: 10px;
   position: fixed;
   top: auto;
   left: -50px;
   width: 100%;
   padding: 15px 20px;
-  
+
 }
 
 .nav-links a {

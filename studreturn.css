@@ -1,9 +1,11 @@
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     display: flex;
     height: 100vh;
 }
+
 .sidebar {
     width: 250px;
     background-color: #0f172a;
@@ -13,6 +15,7 @@ body {
     justify-content: space-between;
     padding: 10px 0;
 }
+
 .logo {
     font-size: 25px;
     font-weight: bold;
@@ -20,47 +23,53 @@ body {
     padding-top: 5px;
     padding-bottom: 8px;
     color: #3b82f6;
-    display:flex;
-    
+    display: flex;
+
 
 }
 
-.logo img{
+.logo img {
     width: 35px;
     height: 35px;
     margin: 5px;
 }
+
 nav {
     display: flex;
     flex-direction: column;
 }
+
 nav a {
     padding: 12px 20px;
     color: white;
     text-decoration: none;
 }
+
 nav a:hover,
 nav a.active {
     background-color: #1e293b;
 }
+
 .profile {
     text-align: center;
     padding: 10px;
     font-size: 14px;
 }
+
 .main {
     flex: 1;
     background-color: #f4f7fb;
     display: flex;
     flex-direction: column;
 }
+
 .top-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px;
     background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .btn {
@@ -70,7 +79,11 @@ nav a.active {
     cursor: pointer;
     color: white;
 }
-.btn-blue { background-color: #3b82f6; }
+
+.btn-blue {
+    background-color: #3b82f6;
+}
+
 .content {
     padding: 20px;
 }
@@ -91,12 +104,15 @@ table {
     background: white;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
-table th, table td {
+
+table th,
+table td {
     padding: 12px 15px;
     border-bottom: 1px solid #f8fbfb;
 }
+
 table th {
     background-color: #5c91c7;
     text-align: left;
