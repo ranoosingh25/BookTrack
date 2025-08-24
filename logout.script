@@ -1,13 +1,5 @@
-<<<<<<< HEAD
 
   setTimeout(() => {
     window.location.href = "login.html";
   }, 5000); // 5 seconds
 
-=======
-
-  setTimeout(() => {
-    window.location.href = "login.html";
-  }, 5000); // 5 seconds
-
->>>>>>> 1ea516461129b463c0180214f1845d336f1453ea
