@@ -1,4 +1,4 @@
-* {
+  * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -129,107 +129,36 @@
             transform: scale(1.1);
             box-shadow: 0 0 8px #0f9;
         }
-      
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
 
-        .card {
-            padding: 20px;
-            border-radius: 20px;
-            color: #fff;
-            font-weight: 500;
-            min-height: 160px;
-            transition: transform 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+:root{
+  --bg:#f4f7fb;--card:#ffffff;--accent:#9333ea;--muted:#6b7280;
+  --danger:#dc2626;--success:#059669;--radius:12px;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+body{margin:0;background:var(--bg);color:#0f172a}
+.app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
 
-        .card h3 {
-            margin-bottom: 10px;
-        }
 
-        .btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 14px;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            border-radius: 8px;
-            color: #fff;
-            font-size: 14px;
-            cursor: pointer;
-            transition: 0.3s;
-            align-self: flex-start;
-        }
+.brand{font-weight:700;font-size:20px;display:flex;align-items:center;gap:10px}
+.logo-img{width:36px;height:36px;border-radius:8px}
 
-        .btn:hover {
-            background: rgba(255, 255, 255, 0.4);
-        }
+.nav{margin-top:20px}
+.nav a{display:block;width:100%;padding:10px 12px;border-radius:8px;text-decoration:none;color:inherit;margin-bottom:8px}
+.nav a.active{background:rgba(255,255,255,0.06)}
 
-        /* Dark theme card colors */
-        .yellow {
-            background: linear-gradient(135deg, #FFD43B, #b38600);
-        }
+main{padding:28px}
+.card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:0 6px 20px rgba(2,6,23,0.06)}
 
-        .pink {
-            background: linear-gradient(135deg, #FF6B9E, #b31b5c);
-        }
+table{width:100%;border-collapse:collapse}
+th,td{padding:8px 6px;text-align:left;border-bottom:1px solid #eef2ff}
 
-        .blue {
-            background: linear-gradient(135deg, #4C9AFF, #003d99);
-        }
+.btn{padding:6px 10px;border-radius:8px;border:0;cursor:pointer}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.danger{background:var(--danger);color:#fff}
+.btn.success{background:var(--success);color:#fff}
 
-        .green {
-            background: linear-gradient(135deg, #34C759, #006622);
-        }
+.muted{color:var(--muted)}
+.flex{display:flex;gap:8px;align-items:center}
 
-        .purple {
-            background: linear-gradient(135deg, #9D4EDD, #4b0082);
-        }
-
-        .orange {
-            background: linear-gradient(135deg, #FF7F50, #cc3300);
-        }
-
-        .teal {
-            background: linear-gradient(135deg, #20c997, #006666);
-        }
-
-        .red {
-            background: linear-gradient(135deg, #ff4d4f, #800000);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-            }
-
-            .sidebar {
-                width: 100%;
-                flex-direction: row;
-                overflow-x: auto;
-                color: #ffffff;
-            }
-
-            .sidebar ul {
-                display: flex;
-            }
-
-            .sidebar ul li {
-                margin: 10px;
-                color: #ffffff;
-            }
-
-            .student-info {
-                display: none;
-            }
-        }
+@media(max-width:900px){.app{grid-template-columns:1fr}.sidebar{display:none}}

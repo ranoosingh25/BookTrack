@@ -1,8 +1,17 @@
+// Carousel Logic
+const books = [
+  { title: "", img: "p2.jpg" },
+  { title: "", img: "p3.jpg" },
+  { title: "", img: "p4.jpg" },
+  { title: "", img: "p5.jpg" }
+];
 
-<header>...your header code...</header>
+let current = 0;
+const imgEl = document.getElementById("carousel-img");
+const titleEl = document.getElementById("carousel-title");
 
-<!-- ✅ Paste the new homepage content below-- >
-  <div class="container">
-    <!-- Filter + Results from above -->
-  </div>
-
+setInterval(() => {
+  current = (current + 1) % books.length;
+  imgEl.src = books[current].img;
+  titleEl.textContent = books[current].title;
+}, 3000);

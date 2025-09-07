@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookTrack - Admin Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="adminmngbook.css">
+    <link rel="stylesheet" href="adminmnguser.css">
 </head>
 <body>
     <div class="sidebar">
@@ -17,7 +17,7 @@
                 <a href="adminmnguser.html"><i class="fa fa-users"></i> Manage Users</a>
                 <a href="adminissue&return.html"><i class="fa fa-exchange-alt"></i> Issue / Return</a>
                 <a href="adminreserve.html"><i class="fa fa-bookmark"></i> Reservations</a>
-               
+                
             </div>
         </div>
         <a href="logout.html"><i class="fa fa-sign-out"></i> Logout</a>
@@ -46,15 +46,16 @@
     <!-- Main Content -->
     <main>
       <div class="card">
-        <h3>Books Inventory</h3>
-        <div class="flex" style="margin-bottom:10px">
-          <input id="bookTitle" placeholder="Book Title" style="padding:6px;flex:1">
-          <input id="bookAuthor" placeholder="Author" style="padding:6px;flex:1">
-          <input id="bookCopies" type="number" placeholder="Copies" style="padding:6px;width:80px">
-          <button class="btn primary" id="addBook">Add</button>
-        </div>
-        <table id="booksTable">
-          <thead><tr><th>Title</th><th>Author</th><th>Copies</th><th>Actions</th></tr></thead>
+        <h3>Student Management</h3>
+       <div class="flex" style="margin-bottom:10px">
+         <input id="studentName" placeholder="Student Name" style="padding:6px;flex:1" required>
+         <input id="studentEmail" placeholder="Email" style="padding:6px;flex:1" required>
+         <input id="studentDepartment" placeholder="Department" style="padding:6px;flex:1" required>
+         <input id="studentYear" placeholder="Year" style="padding:6px;flex:1" required>
+        <button class="btn primary" id="addStudent">Add</button>
+       </div>
+        <table id="studentsTable">
+          <thead><tr><th>Name</th><th>Email</th><th>Department</th><th>Year</th><th>Actions</th></tr></thead>
           <tbody></tbody>
         </table>
       </div>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BookTrack - Admin Search </title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="adminsearch.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div>
+            <div class="logo"><img src="graduate.gif" alt="book icon">BookTrack</div>
+            <div class="menu">
+                <a href="admindash.html"><i class="fa fa-home"></i> Dashboard </a>
+                <a href="adminsearch.html" class="active"><i class="fa fa-search"></i> Search Books </a>
+                <a href="adminissue&return.html"><i class="fa fa-exchange-alt"></i> Issue / Return</a>
+                <a href="adminreserve.html"><i class="fa fa-bookmark"></i> Reservations</a>
+                
+            </div>
+        </div>
+        <a href="logout.html"><i class="fa fa-sign-out"></i> Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        <div class="topbar">
+            <!-- Search bar -->
+            <input type="text" placeholder="🔍 Search books, users..." class="search-bar">
+
+            <!-- Notifications -->
+            <div class="notification">
+              <a href="studnotif.html">
+                <i class="fa fa-bell fa-lg"></i>
+                <span class="badge">0</span>
+                </a>
+            </div>
+
+            <!-- Profile (linked to login.html) -->
+            <a href="studprofile.html" class="profile-link">
+                <img src="profile.webp" alt="Profile" class="profile-pic">
+            </a>
+        </div>
+        
+
+  
+   
+ 
+
+  <main class="container">
+    <!-- Reservation Table -->
+    <section class="card">
+      <h2>All Reservations</h2>
+      <table id="adminTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Student Name</th>
+            <th>Book Title</th>
+            <th>Pick-up Date</th>
+            <th>Pick-up Time</th>
+            <th>Return Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+  </div>
+ 
+
+
+
+  <script src="adminreserve.js"></script>
+</body>
+</html>

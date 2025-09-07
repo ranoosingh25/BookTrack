@@ -1,117 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BookTrack</title>
-  <link rel="stylesheet" href="index.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookTrack - College Library System</title>
+  <link rel="stylesheet" href="index.css">
 </head>
-
 <body>
-  <header class="library-header">
-    <div class="header-overlay">
-      <div class="logo-area">
-        <img src="KDKCELOGO-removebg-preview.png" alt="Logo" class="logo-icon" />
-        <div>
-          <h1 class="library-name">BookTrack</h1>
-          <p class="library-tagline">Student-Centric Library System</p>
-        </div>
+
+  <!-- Hero Section with Header inside -->
+  <div class="hero">
+    <header>
+      <div class="logo">
+        <img src="graduate.gif" alt="logo">
+        <span>BookTrack</span>
       </div>
-
-      <nav class="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="info.html">Information</a>
-        <a href="help.html">Help</a>
-        <a href="librarian.html">Librarian</a>
-        <a href="login.html">Log in</a>
-
-
-
+      
+    
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="info.html">Information</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="librarian.html">Librarian</a></li>
+          <li><a href="login.html">Log In</a></li>
+        </ul>
       </nav>
+    </header>
 
-      <div class="search-bar">
-        <input type="text" id="search" placeholder="Enter keyword to search collection..." />
-        <button onclick="searchLibrary()">
-          <span class="search-icon">&#128269;</span>
-        </button>
+    <div class="hero-content">
+      <h1>Welcome to BookTrack 📚</h1>
+      <p>Student Centric Library System</p>
+      <div class="search-box">
+        <input type="text" placeholder="Search books, authors...">
+        <button>Search</button>
       </div>
-
     </div>
-  </header>
-  <div class="container">
-    <aside class="filter-panel">
-      <h2>Filter by</h2>
-
-      <div class="filter-section">
-        <h3>Publication Year</h3>
-        <input type="range" min="1990" max="2025" value="2007" />
-      </div>
-
-      <div class="filter-section">
-        <h3>Availability</h3>
-        <label><input type="radio" name="availability" checked /> On Shelf</label>
-      </div>
-
-      <div class="filter-section">
-        <h3>Collection Type</h3>
-        <label><input type="checkbox" /> Reference</label>
-        <label><input type="checkbox" /> Textbook</label>
-        <label><input type="checkbox" /> Fiction</label>
-      </div>
-
-      <div class="filter-section">
-        <h3>General Material Designation</h3>
-        <label><input type="checkbox" /> Text</label>
-        <label><input type="checkbox" /> Art Original</label>
-        <label><input type="checkbox" /> Chart</label>
-        <label><input type="checkbox" /> Computer Software</label>
-      </div>
-
-      <div class="filter-section">
-        <h3>Language</h3>
-        <label><input type="checkbox" /> English</label>
-        <label><input type="checkbox" /> Indonesia</label>
-      </div>
-    </aside>
-
-    <main class="results-panel">
-      <div class="results-header">
-        <p><strong>Found 8</strong> from your keywords:</p>
-        <label>
-          Sort by:
-          <select>
-            <option>Most relevant</option>
-            <option>Newest</option>
-            <option>Oldest</option>
-          </select>
-        </label>
-      </div>
-
-      <div class="book-card">
-        <img src="ajax.jpg" alt="Ajax Book" />
-        <div class="book-details">
-          <h3>Ajax: Creating Web Pages with Asynchronous JavaScript and XML</h3>
-          <p><strong>Author:</strong> Woychowsky, Edmond</p>
-          <p>Using Ajax, you can build web applications with the sophistication of desktop apps using open-source
-            standards.</p>
-          <div class="book-actions">
-            <button>Comment</button>
-            <button>Bookmark</button>
-            <button>Share</button>
-          </div>
-        </div>
-        <div class="book-meta">
-          <p>Availability: <strong>1</strong></p>
-          <button>Download</button>
-          <button>Cite</button>
-        </div>
-      </div>
-
-      <!-- Add more book-card blocks if needed -->
-    </main>
   </div>
-  <footer class="footer">
+
+  <!-- Trending Books Carousel -->
+  <section class="carousel">
+    <h2>KDK College Library </h2>
+    <img id="carousel-img" src="" alt="Trending Book">
+    <h3 id="carousel-title">Digital Library Systems</h3>
+  </section>
+
+  <!-- Categories -->
+  <section>
+    <h2 style="text-align:center;">Browse by Category</h2>
+    <div class="categories">
+      <div><img src="cse.webp"><h3>Computer Science & Engineering</h3></div>
+      <div><img src="it.png"><h3>Information Technology</h3></div>
+      <div><img src="ai.png"><h3>Artificial Intelligence and Data Science</h3></div>
+      <div><img src="elect.png"><h3>Electronics & Telecommunication</h3></div>
+      <div><img src="civil.png"><h3>Civil Engineering</h3></div>
+      <div><img src="mech.png"><h3>Mechanical Engineering</h3></div>
+      <div><img src="ee.jpg"><h3>Electrical Engineering</h3></div>
+    </div>
+  </section>
+
+  <!-- Authors -->
+  <section class="authors-section">
+    <h2 style="text-align:center;">Featured Authors</h2>
+    <div class="authors">
+      <div><img src="a1.png"><h3>J. J. Donovan/h3></div>
+      <div><img src="a2.png"><h3>Dennis Ritchie</h3></div>
+      <div><img src="a3.png"><h3>Andrew S. Tanenbaum</h3></div>
+      <div><img src="a4.png"><h3>Yashavant Kanetkar</h3></div>
+      <div><img src="a5.webp"><h3>Kenneth H. Rosen</h3></div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section>
+    <h2 style="text-align:center;">Library Statistics</h2>
+    <div class="stats">
+      <div><h3>10k+</h3><p>Books Available</p></div>
+      <div><h3>3k+</h3><p>Students Registered</p></div>
+      <div><h3>1k+</h3><p>Books Issued Monthly</p></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+   <footer class="footer">
     <div class="footer-content">
       <div class="footer-left">
         <h3>📚 BookTrack</h3>
@@ -142,9 +113,6 @@
     </div>
   </footer>
 
-
   <script src="index.js"></script>
 </body>
 </html>
-
-

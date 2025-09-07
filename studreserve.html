@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookTrack - STUDENT reservation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="studreserve.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div>
+            <div class="logo"><img src="graduate.gif" alt="book icon">BookTrack</div>
+            <div class="menu">
+                <a href="studdash.html" class="active"><i class="fa fa-home"></i> Dashboard </a>
+                <a href="studsearch.html" class="active"><i class="fa fa-search"></i> Search Books </a>
+                <a href="studissue&return.html"><i class="fa fa-exchange-alt"></i> Issue / Return</a>
+                <a href="studreserve.html"><i class="fa fa-bookmark"></i> Reservations</a>
+                
+            </div>
+        </div>
+        <a href="logout.html"><i class="fa fa-sign-out"></i> Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        <div class="topbar">
+            <!-- Search bar -->
+            <input type="text" placeholder="🔍 Search books, users..." class="search-bar">
+
+            <!-- Notifications -->
+            <div class="notification">
+              <a href="studnotif.html">
+                <i class="fa fa-bell fa-lg"></i>
+                <span class="badge">5</span>
+                </a>
+            </div>
+
+            <!-- Profile (linked to login.html) -->
+            <a href="studprofile.html" class="profile-link">
+                <img src="profile.webp" alt="Profile" class="profile-pic">
+            </a>
+        </div>
+
+
+  <main class="container">
+    <!-- Reservation Form -->
+    <section class="card">
+      <h2>Reserve a Book</h2>
+      <form id="reserveForm">
+        <div class="form-group">
+          <label>Your Name:</label>
+          <input type="text" id="studentName" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+          <label>Select Book:</label>
+          <select id="bookTitle" required></select>
+        </div>
+
+        <div class="form-group">
+          <label>Pick-up Date:</label>
+          <input type="date" id="pickupDate" required>
+        </div>
+
+        <div class="form-group">
+          <label>Pick-up Time:</label>
+          <input type="time" id="pickupTime" required>
+        </div>
+
+        <div class="form-group">
+          <label>Reservation Timeline (days):</label>
+          <input type="number" id="timelineDays" min="1" max="30" placeholder="e.g. 7" required>
+        </div>
+
+        <button type="submit" class="btn">Reserve Book</button>
+      </form>
+    </section>
+
+    <!-- Student Reservations -->
+    <section class="card">
+      <h2>Your Reservations</h2>
+      <table id="studentTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Book Title</th>
+            <th>Pick-up</th>
+            <th>Time</th>
+            <th>Return Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+
+  <script src="studreserve.js"></script>
+</body>
+</html>

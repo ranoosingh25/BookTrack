@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookTrack - Admin Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="adminmngbook.css">
+    <link rel="stylesheet" href="adminissue&return.css">
 </head>
 <body>
     <div class="sidebar">
         <div>
             <div class="logo"><img src="graduate.gif" alt="book icon">BookTrack</div>
             <div class="menu">
-                <a href="admindash.html"><i class="fa fa-home"></i> Dashboard</a>
+                <a href="admindash.html"><i class="fa fa-home"></i> Dashboard </a>
                 <a href="adminmngbook.html"><i class="fa fa-book"></i> Manage Books</a>
                 <a href="adminmnguser.html"><i class="fa fa-users"></i> Manage Users</a>
-                <a href="adminissue&return.html"><i class="fa fa-exchange-alt"></i> Issue / Return</a>
+                <a href="adminloan.html"><i class="fa fa-exchange-alt"></i> Issue / Return</a>
                 <a href="adminreserve.html"><i class="fa fa-bookmark"></i> Reservations</a>
-               
+                
             </div>
         </div>
         <a href="logout.html"><i class="fa fa-sign-out"></i> Logout</a>
@@ -34,7 +34,7 @@
               <a href="adminnotif.html">
                 <i class="fa fa-bell fa-lg"></i>
                 <span class="badge">5</span>
-                </a>
+            </a>
             </div>
 
             <!-- Profile (linked to login.html) -->
@@ -43,23 +43,22 @@
             </a>
         </div>
 
-    <!-- Main Content -->
+    <!-- Main -->
     <main>
       <div class="card">
-        <h3>Books Inventory</h3>
+        <h3>Loans Management</h3>
         <div class="flex" style="margin-bottom:10px">
-          <input id="bookTitle" placeholder="Book Title" style="padding:6px;flex:1">
-          <input id="bookAuthor" placeholder="Author" style="padding:6px;flex:1">
-          <input id="bookCopies" type="number" placeholder="Copies" style="padding:6px;width:80px">
-          <button class="btn primary" id="addBook">Add</button>
+          <input id="loanStudent" placeholder="Student Name" style="padding:6px;flex:1">
+          <input id="loanBook" placeholder="Book Title" style="padding:6px;flex:1">
+          <button class="btn primary" id="addLoan">Issue</button>
         </div>
-        <table id="booksTable">
-          <thead><tr><th>Title</th><th>Author</th><th>Copies</th><th>Actions</th></tr></thead>
+        <table id="loansTable">
+          <thead><tr><th>Student</th><th>Book</th><th>Status</th><th>Actions</th></tr></thead>
           <tbody></tbody>
         </table>
       </div>
     </main>
   </div>
-  <script src="admindash.js"></script>
+  <script src="adminissue&return.js"></script>
 </body>
 </html>
