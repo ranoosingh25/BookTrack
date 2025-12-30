@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSE</title>
+    <link rel="stylesheet" href="view1.css" />
+</head>
+<body>
+    <header>
+        <h1>Computer Science & Engineering</h1>
+        <div class="cart-btn" id="openCart">🛒 Your Books (<span id="cart-count">0</span>)</div>
+    </header>
+
+    <section class="book-container" id="bookContainer"></section>
+
+    <!-- Book Options Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="closeBtn" class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <h4 id="modal-author"></h4>
+            <button id="readBtn">📖 Read Online</button>
+            <button id="downloadBtn">⬇️ Download</button>
+            <button id="addCartBtn">🛒 Add to your Books</button>
+            <button id="issueBtn" class="btn" onclick="window.location.href='studreserve.html';">📕🔒 Reserve Book</button>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content cart-box">
+            <span id="closeCart" class="close">&times;</span>
+            <h2>🛒 Your Books</h2>
+            <div id="cart-items"></div>
+        </div>
+    </div>
+
+    <script src="view1.js"></script>
+</body>
+</html>
