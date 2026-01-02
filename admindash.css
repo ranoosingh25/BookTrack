@@ -1,0 +1,337 @@
+/* --- General Styling --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    display: flex;
+    background: #f3f1f1;
+    color: #151414;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #1c1c2b;
+    padding: 20px 10px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    color: #3b82f6;
+    display: flex;
+
+
+}
+
+.logo img {
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin: 5px 0;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    background: #2a2a3d;
+    color: #ffcc00;
+}
+
+.menu i {
+    margin-right: 10px;
+}
+
+/* --- Main Content --- */
+.main {
+    margin-left: 260px;
+    padding: 20px;
+    flex: 1;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #f4f2f2;
+    /* Dark theme */
+    color: white;
+    border-bottom: 2px solid #444;
+}
+
+.search-bar {
+    flex: 1;
+    max-width: 700px;
+    padding: 8px 120px;
+    border: 1px solid #131212;
+    border-radius: 20px;
+    outline: none;
+}
+
+.notification {
+    position: relative;
+    margin: 0 20px;
+    cursor: pointer;
+    color: rgb(239, 239, 34);
+}
+
+.notification .badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: red;
+    color: rgb(212, 204, 204);
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+.profile-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 8px #0f9;
+}
+
+
+
+
+
+/* --- Cards --- */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    padding: 20px;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #ff6a00, #ffcc00);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card.green {
+    background: linear-gradient(45deg, #00b09b, #96c93d);
+}
+
+.card.blue {
+    background: linear-gradient(45deg, #2193b0, #6dd5ed);
+}
+
+.card.purple {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+}
+
+.card.red {
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+}
+
+/* --- Sections --- */
+.section {
+    margin-top: 30px;
+    background: #cacaf3;
+    padding: 20px;
+    border-radius: 12px;
+    border-color: #151414;
+    border: 2px solid #101010;
+}
+
+.section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #342727;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th,
+table td {
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background: #838495;
+    color: #efeb0f;
+}
+
+table tr:nth-child(even) {
+    background: #f2f2f3;
+    color: #0a0a0a;
+}
+
+table tr:nth-child(odd) {
+    background: #f2f2f3;
+    color: #0a0a0a;
+}
+
+
+table tr:hover {
+    background: #cacaf3;
+    border: 1px solid #151414;
+}
+
+/* --- Modern Buttons --- */
+.btn {
+    padding: 8px 14px;
+    margin: 3px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    color: #fff;
+}
+
+.btn.view {
+    background: linear-gradient(45deg, #2196F3, #1976D2);
+}
+
+.btn.view:hover {
+    background: linear-gradient(45deg, #1976D2, #0D47A1);
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(33, 150, 243, 0.5);
+}
+
+.btn.edit {
+    background: linear-gradient(45deg, #4CAF50, #388E3C);
+}
+
+.btn.edit:hover {
+    background: linear-gradient(45deg, #388E3C, #2E7D32);
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.5);
+}
+
+.btn.delete {
+    background: linear-gradient(45deg, #f44336, #d32f2f);
+}
+
+.btn.delete:hover {
+    background: linear-gradient(45deg, #d32f2f, #b71c1c);
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(244, 67, 54, 0.5);
+}
+
+.btn.block {
+    background: linear-gradient(45deg, #9E9E9E, #616161);
+}
+
+.btn.block:hover {
+    background: linear-gradient(45deg, #757575, #424242);
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(158, 158, 158, 0.5);
+}
+
+.btn.approve {
+    background: linear-gradient(45deg, #00C853, #2E7D32);
+}
+
+.btn.approve:hover {
+    background: linear-gradient(45deg, #2E7D32, #1B5E20);
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 200, 83, 0.5);
+}
+
+.btn.reject {
+    background: linear-gradient(45deg, #FF5722, #E64A19);
+}
+
+.btn.reject:hover {
+    background: linear-gradient(45deg, #E64A19, #BF360C);
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(255, 87, 34, 0.5);
+}
+
+.btn.return {
+    background: linear-gradient(45deg, #FFD600, #FFB300);
+    color: #222;
+}
+
+.btn.return:hover {
+    background: linear-gradient(45deg, #FFB300, #FF8F00);
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(255, 214, 0, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .main {
+        margin-left: 210px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .sidebar {
+        display: none;
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}

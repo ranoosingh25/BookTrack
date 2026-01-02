@@ -1,3 +1,6 @@
+
+
+
 const form = document.getElementById("reserveForm");
 const studentTable = document.querySelector("#studentTable tbody");
 
@@ -43,7 +46,7 @@ function renderReservations() {
 }
 
 // Add reservation
-form.addEventListener("submit", function(e) {
+form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   const student = document.getElementById("studentName").value;
@@ -59,9 +62,10 @@ form.addEventListener("submit", function(e) {
 
   reservations.push({ student, book, pickupDate, pickupTime, returnDate: returnDateStr });
   localStorage.setItem("studentReservations", JSON.stringify(reservations));
-
   form.reset();
   renderReservations();
 });
 
 renderReservations();
+
+
