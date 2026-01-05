@@ -47,27 +47,48 @@ document.getElementById('addLoan')?.addEventListener('click', () => {
   if (!studentObj) return alert("Student not found");
   if (bookObj.status === "Borrowed") return alert("Book already issued");
 
+  // Update book & student
   bookObj.status = "Borrowed";
   bookObj.issuedTo = student;
-
   studentObj.booksBorrowed = (studentObj.booksBorrowed || 0) + 1;
 
+  // ✅ ADD LOAN (CORRECT WAY)
   loans.push({
-    student,
-    book,
+    student: student,
+    book: book,
     status: "Issued",
-    issueDate: new Date().toLocaleDateString()
+    issueDate: new Date().toLocaleDateString(),
+    returnDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString()
   });
 
+  // 🔗 AUTO-UPDATE STUDENT RESERVATION
+const reservations = JSON.parse(localStorage.getItem("studentReservations")) || [];
+
+reservations.forEach(r => {
+  if (
+    r.student.toLowerCase() === student.toLowerCase() &&
+    r.book.toLowerCase() === book.toLowerCase()
+  ) {
+    r.status = "Issued";
+  }
+});
+
+localStorage.setItem("studentReservations", JSON.stringify(reservations));
+
+
+  // Save everything
   db.set('books', books);
   db.set('students', students);
   db.set('loans', loans);
+
   renderLoans();
   window.dispatchEvent(new Event("storage"));
 
   document.getElementById('loanStudent').value = '';
   document.getElementById('loanBook').value = '';
 });
+
+
 
 window.returnLoan = (i) => {
   const loans = db.get('loans') || [];
@@ -76,6 +97,21 @@ window.returnLoan = (i) => {
 
   const loan = loans[i];
   loan.status = "Returned";
+
+  // 🔗 UPDATE RESERVATION ON RETURN
+const reservations = JSON.parse(localStorage.getItem("studentReservations")) || [];
+
+reservations.forEach(r => {
+  if (
+    r.student.toLowerCase() === loan.student.toLowerCase() &&
+    r.book.toLowerCase() === loan.book.toLowerCase()
+  ) {
+    r.status = "Returned";
+  }
+});
+
+localStorage.setItem("studentReservations", JSON.stringify(reservations));
+
 
   const bookObj = books.find(b => b.title === loan.book);
   const studentObj = students.find(s => s.name === loan.student);
@@ -127,5 +163,9 @@ window.deleteLoan = (i) => {
   window.dispatchEvent(new Event("storage"));
 };
 
+// 🔁 Render existing loans when page loads
+document.addEventListener("DOMContentLoaded", () => {
+  renderLoans();
+});
 
 

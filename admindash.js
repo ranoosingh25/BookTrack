@@ -85,14 +85,19 @@ function deleteDashboardBook(index) {
 }
 
 function updateDashboardCards() {
-  const books = JSON.parse(localStorage.getItem("books")) || [];
+  const books = db.get("books") || [];
+  const students = db.get("students") || [];
+  const loans = db.get("loans") || [];
 
   document.getElementById("totalBooks").innerText = books.length;
+
   document.getElementById("availableBooks").innerText =
     books.filter(b => b.status === "Available").length;
+
   document.getElementById("borrowedBooks").innerText =
-    books.filter(b => b.status === "Borrowed").length;
+    loans.filter(l => l.status === "Issued").length;
 }
+
 
 
 
@@ -127,7 +132,7 @@ function renderDashboardReservations() {
 
   reservations.forEach((r, i) => {
     const today = new Date().toISOString().split("T")[0];
-    const status = today > r.returnDate ? "Completed" : "Active";
+    const status = r.status || "Active";
 
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -251,14 +256,11 @@ document.addEventListener("DOMContentLoaded", () => {
   renderDashboardBooks();
   renderDashboardStudents();
   renderDashboardLoans();
+  renderDashboardReservations();
   updateDashboardCards();
 });
 
 
-window.addEventListener("storage", () => {
-  location.reload();
-});
-renderDashboardReservations();
 
 
 
