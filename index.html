@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BookTrack - College Library System</title>
   <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
 
   <!-- Hero Section with Header inside -->
   <div class="hero">
+
+
     <header>
       <div class="logo">
         <img src="graduate.gif" alt="logo">
         <span>BookTrack</span>
       </div>
-      
-    
+
+
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
+          <li><a href="books.html">Books</a></li>
           <li><a href="info.html">Information</a></li>
           <li><a href="help.html">Help</a></li>
           <li><a href="librarian.html">Librarian</a></li>
@@ -32,8 +37,9 @@
       <h1>Welcome to BookTrack 📚</h1>
       <p>Student Centric Library System</p>
       <div class="search-box">
-        <input type="text" placeholder="Search books, authors...">
-        <button>Search</button>
+        <input type="text" id="globalSearch" placeholder="Search books, authors...">
+        <button id="searchBtn">Search</button>
+
       </div>
     </div>
   </div>
@@ -49,13 +55,27 @@
   <section>
     <h2 style="text-align:center;">Browse by Category</h2>
     <div class="categories">
-      <div><img src="cse.webp"><h3>Computer Science & Engineering</h3></div>
-      <div><img src="it.png"><h3>Information Technology</h3></div>
-      <div><img src="ai.png"><h3>Artificial Intelligence and Data Science</h3></div>
-      <div><img src="elect.png"><h3>Electronics & Telecommunication</h3></div>
-      <div><img src="civil.png"><h3>Civil Engineering</h3></div>
-      <div><img src="mech.png"><h3>Mechanical Engineering</h3></div>
-      <div><img src="ee.jpg"><h3>Electrical Engineering</h3></div>
+      <div><img src="cse.webp">
+        <h3>Computer Science & Engineering</h3>
+      </div>
+      <div><img src="it.png">
+        <h3>Information Technology</h3>
+      </div>
+      <div><img src="ai.png">
+        <h3>Artificial Intelligence and Data Science</h3>
+      </div>
+      <div><img src="elect.png">
+        <h3>Electronics & Telecommunication</h3>
+      </div>
+      <div><img src="civil.png">
+        <h3>Civil Engineering</h3>
+      </div>
+      <div><img src="mech.png">
+        <h3>Mechanical Engineering</h3>
+      </div>
+      <div><img src="ee.jpg">
+        <h3>Electrical Engineering</h3>
+      </div>
     </div>
   </section>
 
@@ -63,11 +83,21 @@
   <section class="authors-section">
     <h2 style="text-align:center;">Featured Authors</h2>
     <div class="authors">
-      <div><img src="a1.png"><h3>J. J. Donovan</div>
-      <div><img src="a2.png"><h3>Dennis Ritchie</h3></div>
-      <div><img src="a3.png"><h3>Andrew S. Tanenbaum</h3></div>
-      <div><img src="a4.png"><h3>Yashavant Kanetkar</h3></div>
-      <div><img src="a5.webp"><h3>Kenneth H. Rosen</h3></div>
+      <div><img src="a1.png">
+        <h3>J. J. Donovan
+      </div>
+      <div><img src="a2.png">
+        <h3>Dennis Ritchie</h3>
+      </div>
+      <div><img src="a3.png">
+        <h3>Andrew S. Tanenbaum</h3>
+      </div>
+      <div><img src="a4.png">
+        <h3>Yashavant Kanetkar</h3>
+      </div>
+      <div><img src="a5.webp">
+        <h3>Kenneth H. Rosen</h3>
+      </div>
     </div>
   </section>
 
@@ -75,14 +105,23 @@
   <section>
     <h2 style="text-align:center;">Library Statistics</h2>
     <div class="stats">
-      <div><h3>10k+</h3><p>Books Available</p></div>
-      <div><h3>3k+</h3><p>Students Registered</p></div>
-      <div><h3>1k+</h3><p>Books Issued Monthly</p></div>
+      <div>
+        <h3>10k+</h3>
+        <p>Books Available</p>
+      </div>
+      <div>
+        <h3>3k+</h3>
+        <p>Students Registered</p>
+      </div>
+      <div>
+        <h3>1k+</h3>
+        <p>Books Issued Monthly</p>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-   <footer class="footer">
+  <footer class="footer">
     <div class="footer-content">
       <div class="footer-left">
         <h3>📚 BookTrack</h3>
@@ -115,4 +154,5 @@
 
   <script src="index.js"></script>
 </body>
+
 </html>
