@@ -25,7 +25,7 @@ body {
   align-items: center;
 }
 
-.subject-header h1 {
+.subject-header h2 {
   margin: 0;
   font-size: 18px;
 }
@@ -75,9 +75,25 @@ body {
   border-radius: 6px;
 }
 
+.book-author {
+  font-size: 11px;
+  color: #dc0909;
+}
+
+
 .book p {
   font-size: 16px;
   margin-top: 8px;
-  color: #030000;
+  color: #0f0303;
   
 }
+
+.book-title {
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.book-container {
+  margin-top: 20px;
+}
+

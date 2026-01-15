@@ -77,3 +77,26 @@ document.getElementById("searchBtn").addEventListener("click", () => {
       document.getElementById("searchBtn").click();
     }
   });
+
+  document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.getElementById("homeSearch");
+  const searchBtn = document.getElementById("homeSearchBtn");
+
+  function goToBooksPage() {
+    const query = searchInput.value.trim();
+    if (!query) return;
+
+    // redirect with query
+    window.location.href = `books.html?search=${encodeURIComponent(query)}`;
+  }
+
+  // Button click
+  searchBtn.addEventListener("click", goToBooksPage);
+
+  // Enter key support
+  searchInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      goToBooksPage();
+    }
+  });
+});
